@@ -1,17 +1,12 @@
 package ru.netology.utilits;
 
 import com.github.javafaker.Faker;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import lombok.Value;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-@Data
-@RequiredArgsConstructor
 
 public class DataGenerator {
 
@@ -68,74 +63,6 @@ public class DataGenerator {
         Faker faker = new Faker(new Locale("ru"));
         String date = LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         return date;
-    }
-
-    public static class Registration {
-
-        private Registration() {
-        }
-
-        public static UserInfo generateUser(String locale) {
-            UserInfo user = new UserInfo(generateCity(locale), generateName(locale), generatePhone(locale));
-            return (UserInfo) user;
-        }
-
-    }
-
-    public static class RegistrationNameWithYo {
-
-        private RegistrationNameWithYo() {
-        }
-
-        public static UserInfo generateUserWithYo(String locale) {
-            UserInfo user = new UserInfo(generateCity(locale), generateNameWithYo(locale), generatePhone(locale));
-            return (UserInfo) user;
-        }
-
-    }
-
-    public static class InvalidRegistrationCity {
-
-        private InvalidRegistrationCity() {
-        }
-
-        public static UserInfo generateInvalidUser(String locale) {
-            UserInfo user = new UserInfo(generateInvalidCity(locale), generateName(locale), generatePhone(locale));
-            return (UserInfo) user;
-        }
-    }
-
-    public static class InvalidRegistrationName {
-
-        private InvalidRegistrationName() {
-        }
-
-        public static UserInfo generateInvalidUser(String locale) {
-            UserInfo user = new UserInfo(generateCity(locale), generateName("us"), generatePhone(locale));
-            return (UserInfo) user;
-        }
-    }
-
-    public static class InvalidRegistrationPhoneCode {
-
-        private InvalidRegistrationPhoneCode() {
-        }
-
-        public static UserInfo generateInvalidUser(String locale) {
-            UserInfo user = new UserInfo(generateCity(locale), generateName(locale), generateInvalidPhoneCode(locale));
-            return (UserInfo) user;
-        }
-    }
-
-    public static class InvalidRegistrationPhoneNumberOfCharacters {
-
-        private InvalidRegistrationPhoneNumberOfCharacters() {
-        }
-
-        public static UserInfo generateInvalidUser(String locale) {
-            UserInfo user = new UserInfo(generateCity(locale), generateName(locale), generateInvalidPhoneNumberOfCharacters(locale));
-            return (UserInfo) user;
-        }
     }
 
 }
