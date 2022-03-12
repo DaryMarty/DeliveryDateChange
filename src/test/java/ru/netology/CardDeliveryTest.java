@@ -9,7 +9,6 @@ import org.openqa.selenium.Keys;
 import ru.netology.utilits.DataGenerator;
 import ru.netology.utilits.Registration;
 
-
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.text;
@@ -62,7 +61,7 @@ public class CardDeliveryTest {
     public void shouldReplanMeetingNameWithYo() {
         int planningDate = 3;
         int newDate = 8;
-        val user = Registration.RegistrationNameWithYo.generateUserWithYo("ru");
+        val user = Registration.RegistrationUser.generateUserWithYo("ru");
         $("[placeholder='Город']").setValue(user.getCity());
         $("[placeholder='Дата встречи']").sendKeys(deleteString);
         $("[placeholder='Дата встречи']").setValue(DataGenerator.generateDate(planningDate));
@@ -91,7 +90,7 @@ public class CardDeliveryTest {
     public void shouldBeFailNameUS() {
         int planningDate = 3;
         int newDate = 8;
-        val user = Registration.InvalidRegistrationName.generateInvalidUser("us");
+        val user = Registration.RegistrationUser.generateInvalidUserName("us");
         $("[placeholder='Город']").setValue(user.getCity());
         $("[placeholder='Дата встречи']").sendKeys(deleteString);
         $("[placeholder='Дата встречи']").setValue(DataGenerator.generateDate(planningDate));
@@ -161,7 +160,7 @@ public class CardDeliveryTest {
     public void shouldBeFailCityWithoutDelivery() {
         int planningDate = 4;
         int newDate = 8;
-        val user = Registration.InvalidRegistrationCity.generateInvalidUser("ru");
+        val user = Registration.RegistrationUser.generateInvalidUserCity("ru");
         $("[placeholder='Город']").setValue(user.getCity());
         $("[placeholder='Дата встречи']").sendKeys(deleteString);
         $("[placeholder='Дата встречи']").setValue(DataGenerator.generateDate(planningDate));
@@ -178,7 +177,7 @@ public class CardDeliveryTest {
     public void shouldBeFailIncorrectPhoneCode() {
         int planningDate = 4;
         int newDate = 8;
-        val user = Registration.InvalidRegistrationPhoneCode.generateInvalidUser("ru");
+        val user = Registration.RegistrationUser.generateInvalidUserPhone("ru");
         $("[placeholder='Город']").setValue(user.getCity());
         $("[placeholder='Дата встречи']").sendKeys(deleteString);
         $("[placeholder='Дата встречи']").setValue(DataGenerator.generateDate(planningDate));
@@ -194,7 +193,7 @@ public class CardDeliveryTest {
     public void shouldBeFailIncorrectPhone() {
         int planningDate = 4;
         int newDate = 8;
-        val user = Registration.InvalidRegistrationPhoneNumberOfCharacters.generateInvalidUser("ru");
+        val user = Registration.RegistrationUser.generateInvalidUserPhoneNumber("ru");
         $("[placeholder='Город']").setValue(user.getCity());
         $("[placeholder='Дата встречи']").sendKeys(deleteString);
         $("[placeholder='Дата встречи']").setValue(DataGenerator.generateDate(planningDate));
